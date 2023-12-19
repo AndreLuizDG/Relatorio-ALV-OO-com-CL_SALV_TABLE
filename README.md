@@ -23,5 +23,11 @@ Este repositório contém um código ABAP que implementa um relatório orientado
 ## Detalhes Técnicos
 O relatório é implementado no arquivo `relatorio_oo.abap` e utiliza includes separados para melhor modularização (`Declarações.abap`, `Classes.abap`). A classe `CL_SALV_TABLE` é empregada para facilitar a exibição de dados tabulares. A BAPI é chamada para obter dados relevantes.
 
+/\<Relatorio ALV OO, ultilização de bapi e CL_SALV_TABLE>
+|-- Declarações.abap
+|-- Tela.abap
+|-- Classes.abap
+|-- Eventos.abap
+
 ## Autor
 Este projeto foi desenvolvido primariamente por André Luiz G.J.

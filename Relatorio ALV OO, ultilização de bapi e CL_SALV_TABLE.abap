@@ -1,8 +1,8 @@
 *$*$ -------------------------------------------------------------- *$*$
-*$*$ Autor      : André Luiz Guilhermini Junior                     *$*$
+*$*$ Autor      : Andrï¿½ Luiz Guilhermini Junior                     *$*$
 *$*$ Data       : 20/09/2023                                        *$*$
 *$*$ -------------------------------------------------------------- *$*$
-*$*$ Objetivo: Fazer o desenvolvimento da EF Recobrança Portofer    *$*$
+*$*$ Objetivo: Fazer o desenvolvimento da EF Recobranï¿½a Portofer    *$*$
 *$*$ usando classes.                                                *$*$
 *$*$ Melhorias:                                                     *$*$
 *$*$ -------------------------------------------------------------- *$*$
@@ -13,6 +13,3 @@ INCLUDE z_algj_02_top.
 INCLUDE z_algj_02_scr.
 INCLUDE z_algj_02_cla.
 INCLUDE z_algj_02_eve.
-
-----------------------------------------------------------------------------------
-Extracted by Mass Download version 1.5.5 - E.G.Mellodew. 1998-2023. Sap Release 740

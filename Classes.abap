@@ -1,10 +1,10 @@
 *$*$ -------------------------------------------------------------- *$*$
-*$*$ Autor      : André Luiz Guilhermini Junior                     *$*$
+*$*$ Autor      : Andrï¿½ Luiz Guilhermini Junior                     *$*$
 *$*$ Data       : 20/09/2023                                        *$*$
 *$*$ -------------------------------------------------------------- *$*$
-*$*$ Objetivo: Fazer o desenvolvimento da EF Recobrança Portofer    *$*$
-*$*$ Melhorias: Implementar a classe que faz o botão de gerar CSV   *$*$
-*$*$ tá com problema pq o metodo é privado                          *$*$
+*$*$ Objetivo: Fazer o desenvolvimento da EF Recobranï¿½a Portofer    *$*$
+*$*$ Melhorias: Implementar a classe que faz o botï¿½o de gerar CSV   *$*$
+*$*$ tï¿½ com problema pq o metodo ï¿½ privado                          *$*$
 *$*$ -------------------------------------------------------------- *$*$
 
 *$*$ -------------------------------------------------------------- *$*$
@@ -39,11 +39,11 @@ CLASS cla_alv IMPLEMENTATION.
 
     CALL FUNCTION 'FI_PERIOD_DETERMINE'
       EXPORTING
-        i_budat        = s_budat-low "Data inicial da minha tela de seleção
-        i_bukrs        = p_bukrs     "Empresa da minha tela de seleção
+        i_budat        = s_budat-low "Data inicial da minha tela de seleï¿½ï¿½o
+        i_bukrs        = p_bukrs     "Empresa da minha tela de seleï¿½ï¿½o
       IMPORTING
-        e_gjahr        = v_gjahr_i "Exercício
-        e_monat        = v_monat_i "Mês do exercício
+        e_gjahr        = v_gjahr_i "Exercï¿½cio
+        e_monat        = v_monat_i "Mï¿½s do exercï¿½cio
         e_poper        = v_poper_i "Periodo contabil (ano)
       EXCEPTIONS
         fiscal_year    = 1
@@ -63,11 +63,11 @@ CLASS cla_alv IMPLEMENTATION.
 
     CALL FUNCTION 'FI_PERIOD_DETERMINE'
       EXPORTING
-        i_budat        = s_budat-high "Data inicial da minha tela de seleção
-        i_bukrs        = p_bukrs      "Empresa da minha tela de seleção
+        i_budat        = s_budat-high "Data inicial da minha tela de seleï¿½ï¿½o
+        i_bukrs        = p_bukrs      "Empresa da minha tela de seleï¿½ï¿½o
       IMPORTING
-        e_gjahr        = v_gjahr_f "Exercício
-        e_monat        = v_monat_f "Mês do exercício
+        e_gjahr        = v_gjahr_f "Exercï¿½cio
+        e_monat        = v_monat_f "Mï¿½s do exercï¿½cio
         e_poper        = v_poper_f "Periodo contabil (ano)
       EXCEPTIONS
         fiscal_year    = 1
@@ -101,8 +101,8 @@ CLASS cla_alv IMPLEMENTATION.
              v_resp.
 
       CONCATENATE
-      'Para a empresa' p_bukrs 'já foi lançada depreciação para o período informado.'
-      'Será necessário executar transação afab  com a opção “repetição”.'
+      'Para a empresa' p_bukrs 'jï¿½ foi lanï¿½ada depreciaï¿½ï¿½o para o perï¿½odo informado.'
+      'Serï¿½ necessï¿½rio executar transaï¿½ï¿½o afab  com a opï¿½ï¿½o ï¿½repetiï¿½ï¿½oï¿½.'
       'Deseja prosseguir?'
       INTO v_help
        SEPARATED BY space.
@@ -122,13 +122,13 @@ CLASS cla_alv IMPLEMENTATION.
       ENDIF.
     ENDIF.
 
-*    Fazer a validação na hora de chamar os metodos
+*    Fazer a validaï¿½ï¿½o na hora de chamar os metodos
 
   ENDMETHOD.
 
   METHOD seleciona_dados.
 
-*   Cabeçalho de documento do lançamento de imobilizado
+*   Cabeï¿½alho de documento do lanï¿½amento de imobilizado
     FREE   ti_anek.
     SELECT bukrs
            anln1
@@ -141,11 +141,11 @@ CLASS cla_alv IMPLEMENTATION.
            sgtxt
       FROM anek
       INTO TABLE  ti_anek.
-*     (ESTÁ COMENTANDO PQ NÃO TEM DADOS PARA ESSE CENARIO)
+*     (ESTï¿½ COMENTANDO PQ Nï¿½O TEM DADOS PARA ESSE CENARIO)
 *     WHERE bukrs  = p_bukrs   "Empresa
 *       AND anln1  = s_anln1   "Imobilizado
-*       AND anln2  = s_anln2   "Subnúmero
-*       AND budat  = s_budat.    "Data de Lançamento
+*       AND anln2  = s_anln2   "Subnï¿½mero
+*       AND budat  = s_budat.    "Data de Lanï¿½amento
 *      AND LNSAN  = space     "Documento de Estorno
 
     IF sy-subrc <> 0.
@@ -165,8 +165,8 @@ CLASS cla_alv IMPLEMENTATION.
      FOR ALL ENTRIES IN ti_anek
        WHERE bukrs  =  ti_anek-bukrs  "Empresa
          AND anln1  =  ti_anek-anln1  "Imobilizado
-         AND anln2  =  ti_anek-anln2. "Subnúmero
-*        AND anlkl  IN s_anlkl.       "Classe do Imobilizado (ESTÁ COMENTANDO PQ NÃO TEM DADOS PARA ESSE CENARIO)
+         AND anln2  =  ti_anek-anln2. "Subnï¿½mero
+*        AND anlkl  IN s_anlkl.       "Classe do Imobilizado (ESTï¿½ COMENTANDO PQ Nï¿½O TEM DADOS PARA ESSE CENARIO)
 
       IF sy-subrc <> 0.
         FREE ti_anla.
@@ -254,7 +254,7 @@ CLASS cla_alv IMPLEMENTATION.
       FREE ti_tabw_2.
     ENDIF.
 
-*       Cabeçalho de documento do lançamento de imobilizado
+*       Cabeï¿½alho de documento do lanï¿½amento de imobilizado
     IF ti_anek IS NOT INITIAL.
       SELECT bukrs
              anln1
@@ -265,7 +265,7 @@ CLASS cla_alv IMPLEMENTATION.
          FOR ALL ENTRIES IN ti_anek
        WHERE  bukrs   = ti_anek-bukrs  "Empresa
          AND  anln1   = ti_anek-anln1  "Imobilizado
-         AND  anln2   = ti_anek-anln2  "Subnúmero
+         AND  anln2   = ti_anek-anln2  "Subnï¿½mero
          AND  lnran  	= ti_anek-lnran. "Sequencial
 
       IF sy-subrc <> 0.
@@ -341,12 +341,12 @@ CLASS cla_alv IMPLEMENTATION.
 
           wa_saida-bukrs = wa_anep-bukrs. "Empresa
           wa_saida-anln1 = wa_anep-anln1. "Imobilizado
-          wa_saida-anln2 = wa_anep-anln2. "“Subnúmero
+          wa_saida-anln2 = wa_anep-anln2. "ï¿½Subnï¿½mero
 
           READ TABLE ti_anla INTO wa_anla WITH KEY
                                           bukrs = wa_anep-bukrs "Empresa
                                           anln1 = wa_anep-anln1 "Imobilizado
-                                          anln2 = wa_anep-anln2 "Subnúmero
+                                          anln2 = wa_anep-anln2 "Subnï¿½mero
                                           BINARY SEARCH.
           IF sy-subrc = 0.
             wa_saida-txt50 = wa_anla-txt50. "Texto Descritivo
@@ -360,14 +360,14 @@ CLASS cla_alv IMPLEMENTATION.
             wa_saida-txk50 = wa_ankt-txk50.
           ENDIF.
 
-          wa_saida-lnran = wa_anep-lnran. "N° sequencial da partida
+          wa_saida-lnran = wa_anep-lnran. "Nï¿½ sequencial da partida
           wa_saida-bwasl = wa_anep-bwasl. "Tipo de movimento do imobilizado
 
           READ TABLE ti_tabwt INTO wa_tabwt WITH KEY
                                             bwasl = wa_anep-bwasl
                                             BINARY SEARCH.
           IF sy-subrc = 0.
-            wa_saida-bwatxt = wa_tabwt-bwatxt. "Descrição do tipo de movimento
+            wa_saida-bwatxt = wa_tabwt-bwatxt. "Descriï¿½ï¿½o do tipo de movimento
           ENDIF.
 
           READ TABLE ti_anek INTO wa_anek WITH KEY
@@ -440,7 +440,7 @@ CLASS cla_alv IMPLEMENTATION.
     CLEAR wa_fieldcat.
     wa_fieldcat-fieldname = 'TXT50'.
     wa_fieldcat-tabname = 'TI_SAIDA'.
-    wa_fieldcat-reptext_ddic = 'MONTANTE LANÇADO'.
+    wa_fieldcat-reptext_ddic = 'MONTANTE LANï¿½ADO'.
     wa_fieldcat-inttype = 'C'.
     wa_fieldcat-outputlen = 50.
     APPEND wa_fieldcat TO ti_fieldcat.
@@ -536,5 +536,3 @@ CLASS cla_alv IMPLEMENTATION.
 
 ENDCLASS. "zcl_report
 
-----------------------------------------------------------------------------------
-Extracted by Mass Download version 1.5.5 - E.G.Mellodew. 1998-2023. Sap Release 740
