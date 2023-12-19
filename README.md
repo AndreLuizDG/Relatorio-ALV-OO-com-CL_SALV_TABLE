@@ -16,7 +16,7 @@ Este repositório contém um código ABAP que implementa um relatório orientado
 - Acesso às transações de desenvolvimento no SAP.
 
 ## Instruções de Uso
-1. Faça o download do código-fonte.
+1. Faça o download do código-fonte (arquivos terminados em .abap).
 2. Importe o código-fonte para o sistema SAP utilizando a transação `SE80` ou `SE38`.
 3. Execute o relatório utilizando a transação `SE38` ou `SA38`.
 
